@@ -297,9 +297,7 @@ function FaviFont() {
           <h1 className="text-xl font-bold">Favorites</h1>
           {!user &&
             <div className="flex w-96 justify-center">
-              <div className="w-56">
-                <GAuthButton />
-              </div>
+              <GAuthButton />
             </div>
           }
           {user && !favorites.length && <p className="text-muted-foreground">No fonts saved.</p>}
