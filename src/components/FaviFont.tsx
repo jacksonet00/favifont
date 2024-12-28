@@ -73,7 +73,7 @@ function FaviFont() {
   const [currentIndex, setCurrentIndex] = useState(user ? user.currentIndex : 0);
   const [favorites, setFavorites] = useState(user ? user.favoriteFonts : []);
 
-  const [previewText, setPreviewText] = useState("FaviFont");
+  const [previewText, setPreviewText] = useState(router.query.previewText ? router.query.previewText as string : "FaviFont");
   const [currentFont, setCurrentFont] = useState(GOOGLE_FONTS[currentIndex]);
 
   const [fontA, setFontA] = useState<Font>(GOOGLE_FONTS[0]);
@@ -95,6 +95,9 @@ function FaviFont() {
     if (router.query.compare && router.query.compareTo) {
       setFontA(GOOGLE_FONTS[parseInt(router.query.compare as string)]);
       setFontB(GOOGLE_FONTS[parseInt(router.query.compareTo as string)]);
+    }
+    if (router.query.previewText) {
+      setPreviewText(router.query.previewText as string);
     }
   }, [router.query]);
 
@@ -143,7 +146,7 @@ function FaviFont() {
     const fontBId = favorites[(fontAFavoriteIndex! + 1) % favorites.length].id;
     setFontA(GOOGLE_FONTS[fontAId]);
     setFontB(GOOGLE_FONTS[fontBId]);
-    router.push({ query: { compare: fontAId, compareTo: fontBId } });
+    router.push({ query: { compare: fontAId, compareTo: fontBId, previewText, } });
   }
 
   function handleExit() {
