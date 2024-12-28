@@ -16,7 +16,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./ui/select";
 
-const GOOGLE_FONTS = (fontMetadata as GoogleFontsAPIResponse).familyMetadataList.map((data: FamilyMetadata, idx: number) => ({
+const GOOGLE_FONTS: Font[] = (fontMetadata as GoogleFontsAPIResponse).familyMetadataList.map((data: FamilyMetadata, idx: number) => ({
   family: data.family,
   category: data.category,
   variants: ["regular"],
@@ -117,6 +117,20 @@ function FaviFont() {
     mutate({
       favoriteFonts: user!.favoriteFonts.filter((font) => font.id !== index),
     });
+  }
+
+  function getPrevFavorite(favId: number): Font {
+    const fav = favorites.find((font) => font.id === favId);
+    const favIndex = favorites.indexOf(fav!);
+    const prevFavoriteId = favorites[(favIndex - 1 + favorites.length) % favorites.length].id;
+    return GOOGLE_FONTS[prevFavoriteId];
+  }
+
+  function getNextFavorite(favId: number): Font {
+    const fav = favorites.find((font) => font.id === favId);
+    const favIndex = favorites.indexOf(fav!);
+    const nextFavoriteId = favorites[(favIndex + 1) % favorites.length].id;
+    return GOOGLE_FONTS[nextFavoriteId];
   }
 
   function handleCompare(fontAId: number) {
@@ -223,6 +237,8 @@ function FaviFont() {
             font={fontA}
             previewText={previewText}
             type="COMPARE"
+            onNext={(id) => setFontA(getNextFavorite(id))}
+            onPrev={(id) => setFontA(getPrevFavorite(id))}
           />
           <Select onOpenChange={handleOpen} value={`${fontB.id}`} onValueChange={(e) => {
             setFontB(GOOGLE_FONTS[parseInt(e)]);
@@ -247,6 +263,8 @@ function FaviFont() {
             font={fontB}
             previewText={previewText}
             type="COMPARE"
+            onNext={(id) => setFontB(getNextFavorite(id))}
+            onPrev={(id) => setFontB(getPrevFavorite(id))}
           />
         </main>
         <Footer />
