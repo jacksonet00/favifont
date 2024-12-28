@@ -85,10 +85,10 @@ function FontCard({
         </CardTitle>
         <CardDescription><p>{font.category}</p></CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="w-full">
         <h1
           style={{ fontFamily: font.family }}
-          className="text-3xl text-center"
+          className="text-3xl text-center w-full h-8 overflow-ellipsis"
         >
           {previewText.length ? previewText : font.family}
         </h1>

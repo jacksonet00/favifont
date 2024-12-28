@@ -192,6 +192,13 @@ function FaviFont() {
     }
   }
 
+  function setUrlParam(key: string, value: string) {
+    const params = new URLSearchParams(window.location.search);
+    params.set(key, value);
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.pushState({}, '', newUrl);
+  }
+
   const { compare } = router.query;
 
   if (compare) {
@@ -217,12 +224,17 @@ function FaviFont() {
               Exit
             </Button>
           </div>
+          <Input
+            className="w-96"
+            value={previewText}
+            onChange={(e) => {
+              setPreviewText(e.target.value);
+              setUrlParam("previewText", e.target.value);
+            }}
+          />
           <Select onOpenChange={handleOpen} value={`${fontA.id}`} onValueChange={(e) => {
             setFontA(GOOGLE_FONTS[parseInt(e)]);
-            const params = new URLSearchParams(window.location.search);
-            params.set('compare', e);
-            const newUrl = `${window.location.pathname}?${params.toString()}`;
-            window.history.pushState({}, '', newUrl);
+            setUrlParam("compare", e);
           }}>
             <SelectTrigger className="w-96">
               <SelectValue placeholder="Select a font" />
@@ -245,10 +257,7 @@ function FaviFont() {
           />
           <Select onOpenChange={handleOpen} value={`${fontB.id}`} onValueChange={(e) => {
             setFontB(GOOGLE_FONTS[parseInt(e)]);
-            const params = new URLSearchParams(window.location.search);
-            params.set('compareTo', e);
-            const newUrl = `${window.location.pathname}?${params.toString()}`;
-            window.history.pushState({}, '', newUrl);
+            setUrlParam("compareTo", e);
           }}>
             <SelectTrigger className="w-96">
               <SelectValue placeholder="Select a font" />
