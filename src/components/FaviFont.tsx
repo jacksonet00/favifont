@@ -291,7 +291,10 @@ function FaviFont() {
         <Input
           className="w-96"
           value={previewText}
-          onChange={(e) => setPreviewText(e.target.value)}
+          onChange={(e) => {
+            setPreviewText(e.target.value);
+            setUrlParam("previewText", e.target.value);
+          }}
         />
         <FontCard
           font={currentFont}
