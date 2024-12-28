@@ -18,8 +18,20 @@ interface FontCardProps {
   compareEnabled?: boolean;
 }
 
-function getFontSize(previewText: string) {
-  if (previewText.length > 100) {
+function getFontSize(previewText: string, type: FontCardType) {
+  if (type === "FAVORITE") {
+    if (previewText.length > 50) {
+      return "text-sm";
+    }
+    if (previewText.length > 20) {
+      return "text-xl";
+    }
+    if (previewText.length > 10) {
+      return "text-2xl";
+    }
+    return "text-3xl";
+  }
+  if (previewText.length > 70) {
     return "text-sm";
   }
   if (previewText.length > 50) {
@@ -51,7 +63,7 @@ function FontCard({
           <div className="flex flex-col w-11/12 h-full">
             <CardTitle><h1
               style={{ fontFamily: font.family }}
-              className={`${getFontSize(previewText)} w-full max-h-12 overflow-hidden`}
+              className={`${getFontSize(previewText, type)} w-full max-h-12 overflow-hidden`}
             >
               {previewText.length ? previewText : font.family}
             </h1></CardTitle>
@@ -101,7 +113,7 @@ function FontCard({
       <CardContent className="w-full">
         <h1
           style={{ fontFamily: font.family }}
-          className={`${getFontSize(previewText)} text-center w-full max-h-12 overflow-hidden`}
+          className={`${getFontSize(previewText, type)} text-center w-full max-h-12 overflow-hidden`}
         >
           {previewText.length ? previewText : font.family}
         </h1>

@@ -174,17 +174,26 @@ function FaviFont() {
     if (router.query.compare && router.query.compareTo) {
       const fontAId = parseInt(router.query.compare as string);
       const fontBId = parseInt(router.query.compareTo as string);
+
       if (fontAId < 0 || fontAId >= GOOGLE_FONTS.length || fontBId < 0 || fontBId >= GOOGLE_FONTS.length) {
         router.push({ query: { previewText: router.query.previewText } });
+        return;
+      }
+
+      setFontA(GOOGLE_FONTS[fontAId]);
+      setFontB(GOOGLE_FONTS[fontBId]);
+
+      if (!favorites.length) {
         return;
       }
       if (!favorites.find((font) => font.id === fontAId) || !favorites.find((font) => font.id === fontBId)) {
         setCompareMode("ALL");
       }
-      setFontA(GOOGLE_FONTS[fontAId]);
-      setFontB(GOOGLE_FONTS[fontBId]);
+      else {
+        setCompareMode("FAVORITES");
+      }
     }
-  }, [router.query.compare, router.query.compareTo]);
+  }, [favorites, router.query.compare, router.query.compareTo]);
 
   useEffect(() => {
     if (router.query.previewText) {
