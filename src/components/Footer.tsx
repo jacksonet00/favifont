@@ -1,5 +1,4 @@
 
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@radix-ui/react-hover-card";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import Image from "next/image";
 import Link from "next/link";
@@ -43,7 +42,15 @@ const Footer = () => {
                 LINKS
               </div>
 
-              <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
+              <div className="flex flex-col justify-center items-center md:items-start mb-10 text-sm">
+                <Link onClick={() => handleClick("website")} href="https://www.jacksontaylor.com" target="_blank" className="link link-hover">
+                  <Button
+                    variant="link"
+                    className="text-white p-0"
+                  >
+                    jacksontaylor.com
+                  </Button>
+                </Link>
                 <Link onClick={() => handleClick("twitter")} href="https://x.com/workwithjackson" target="_blank" className="link link-hover">
                   <Button
                     variant="link"
@@ -60,16 +67,47 @@ const Footer = () => {
                 LEGAL
               </div>
 
-              <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
+              <div className="flex flex-col justify-center items-center md:items-start mb-10 text-sm">
                 <Link onClick={() => handleClick("tos")} href="/tos" className="link link-hover">
-                  Terms of services
+                  <Button
+                    variant="link"
+                    className="text-white p-0"
+                  >
+                    Terms of services
+                  </Button>
                 </Link>
                 <Link onClick={() => handleClick("privacy-policy")} href="/privacy-policy" className="link link-hover">
-                  Privacy policy
+                  <Button
+                    variant="link"
+                    className="text-white p-0"
+                  >
+                    Privacy policy
+                  </Button>
                 </Link>
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-full flex justify-center mt-8">
+          <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
+            Made with
+            <Image
+              src="/images/mwl.png"
+              alt="pixel art heart"
+              width={15}
+              height={15}
+              className="inline mx-1 mb-0.5 animate-heartbeat"
+            />
+            by{" "}
+            <a
+              href="https://x.com/workwithjackson"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium underline underline-offset-4"
+            >
+              jackson⁖
+            </a>
+          </p>
         </div>
       </div>
     </footer>
