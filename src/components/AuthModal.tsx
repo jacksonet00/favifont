@@ -13,7 +13,7 @@ export default function AuthModal({
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-zinc-900">
+      <DialogContent className="w-96 h-36 bg-zinc-900">
         <DialogHeader>
           <DialogTitle>Sign In</DialogTitle>
           <DialogDescription>
@@ -21,9 +21,7 @@ export default function AuthModal({
           </DialogDescription>
         </DialogHeader>
         <div className="flex w-full justify-center">
-          <div className="w-56">
-            <GAuthButton />
-          </div>
+          <GAuthButton />
         </div>
       </DialogContent>
     </Dialog>
