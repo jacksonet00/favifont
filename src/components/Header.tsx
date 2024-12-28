@@ -21,19 +21,16 @@ function UserProfile() {
     );
   }
 
+  let source = user.displayImage;
   if (user.displayImage === "DEFAULT_PFP") {
-    return (
-      <Avatar>
-        <AvatarImage src="/images/default-pfp.jpg" alt="anon pfp" />
-      </Avatar>
-    );
+    source = "/images/default-pfp.jpg";
   }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar>
-          <AvatarImage src={user.displayImage} alt="your pfp" />
+          <AvatarImage src={source} alt="your pfp" />
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent>

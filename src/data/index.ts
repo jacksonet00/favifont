@@ -84,7 +84,7 @@ export type Font = {
   id: number;
 };
 
-export type FontUser = {
+export type FaviFontUser = {
   uid: string;
   displayName: string;
   email: string | null;

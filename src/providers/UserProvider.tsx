@@ -1,4 +1,4 @@
-import { FontUser } from "@/data";
+import { FaviFontUser } from "@/data";
 import { errorWrapper, logWrapper } from "@/lib/utils";
 import { getAnalytics, setUserId } from "firebase/analytics";
 import { signOut as firebaseSignOut, User as FirebaseUser, signInWithPopup } from "firebase/auth";
@@ -11,7 +11,7 @@ import { auth, db, signInWithGoogleProvider } from "../../firebase.config";
 const DEFAULT_DISPLAY_NAME = "anon";
 const DEFAULT_PFP = "DEFAULT_PFP";
 
-function genDefaultUserDocument(user: FirebaseUser): FontUser {
+function genDefaultUserDocument(user: FirebaseUser): FaviFontUser {
   return {
     uid: user.uid,
     displayName: user.displayName || DEFAULT_DISPLAY_NAME,
@@ -24,13 +24,13 @@ function genDefaultUserDocument(user: FirebaseUser): FontUser {
   };
 }
 
-async function fetchFontUser(firebaseUser: FirebaseUser | null): Promise<FontUser | null> {
+async function fetchFontUser(firebaseUser: FirebaseUser | null): Promise<FaviFontUser | null> {
   if (!firebaseUser) {
     return null;
   }
   const _doc = await getDoc(doc(db, "users", firebaseUser.uid));
   if (_doc.exists()) {
-    return _doc.data() as FontUser;
+    return _doc.data() as FaviFontUser;
   }
   else {
     return null;
@@ -39,8 +39,8 @@ async function fetchFontUser(firebaseUser: FirebaseUser | null): Promise<FontUse
 
 interface UserContextType {
   firebaseUser: FirebaseUser | null;
-  user: FontUser | null;
-  refetchUser: <TPageData>(options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined) => Promise<QueryObserverResult<FontUser | null, unknown>>;
+  user: FaviFontUser | null;
+  refetchUser: <TPageData>(options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined) => Promise<QueryObserverResult<FaviFontUser | null, unknown>>;
   isUserLoading: boolean;
   isRefetchingUser: boolean;
   signInWithGoogle: () => Promise<void>;

@@ -1,4 +1,4 @@
-import { FamilyMetadata, Font, FontUser, GoogleFontsAPIResponse } from "@/data";
+import { FamilyMetadata, Font, FaviFontUser, GoogleFontsAPIResponse } from "@/data";
 import * as fontMetadata from "@/data/fonts_metadata.json";
 import { useUser } from "@/providers/UserProvider";
 import { doc, setDoc } from "firebase/firestore";
@@ -84,7 +84,7 @@ function useFonts(fonts: Font[]) {
   }, [fonts]);
 }
 
-async function updateUser(uid: string, partialUser: Partial<FontUser>) {
+async function updateUser(uid: string, partialUser: Partial<FaviFontUser>) {
   await setDoc(doc(db, "users", uid), partialUser, { merge: true });
 }
 
@@ -206,7 +206,7 @@ function FaviFont() {
   useFonts([fontA, fontB]);
 
   const { mutate } = useMutation({
-    mutationFn: (partialUser: Partial<FontUser>) => updateUser(firebaseUser!.uid, partialUser),
+    mutationFn: (partialUser: Partial<FaviFontUser>) => updateUser(firebaseUser!.uid, partialUser),
     onMutate: () => {
       setLoading(true);
     },
