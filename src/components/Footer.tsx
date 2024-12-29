@@ -51,12 +51,12 @@ const Footer = () => {
                     jacksontaylor.com
                   </Button>
                 </Link>
-                <Link onClick={() => handleClick("twitter")} href="https://x.com/workwithjackson" target="_blank" className="link link-hover">
+                <Link onClick={() => handleClick("twitter")} href="https://x.com/zeroxjackson" target="_blank" className="link link-hover">
                   <Button
                     variant="link"
                     className="text-white p-0"
                   >
-                    @workwithjackson
+                    @zeroxjackson
                   </Button>
                 </Link>
               </div>
@@ -100,7 +100,7 @@ const Footer = () => {
             />
             by{" "}
             <a
-              href="https://x.com/workwithjackson"
+              href="https://x.com/zeroxjackson"
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
