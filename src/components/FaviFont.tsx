@@ -214,7 +214,7 @@ function FaviFont() {
       setLoading(false);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: "user" });
+      queryClient.invalidateQueries("user");
     },
   });
 
@@ -222,6 +222,7 @@ function FaviFont() {
     mutate({
       favoriteFonts: user!.favoriteFonts.filter((font) => font.id !== index),
     });
+    setFavorites(favorites.filter((font) => font.id !== index));
   }
 
   function getPreviousFont(id: number, mode: CompareMode) {
