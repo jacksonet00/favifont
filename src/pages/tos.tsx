@@ -56,7 +56,7 @@ const TOS = () => {
           <h3 className="text-lg font-bold mb-4">Governing Law</h3>
           <p className="mb-2">These Terms are governed by the laws of the United States. Any disputes arising under or related to these Terms will be resolved in accordance with U.S. law.</p>
           <h3 className="text-lg font-bold mb-4">Contact Information</h3>
-          <p className="mb-2">If you have any questions about these Terms, please contact us at <a href="mailto:workwithjacksontaylor@gmail.com" className="underline text-blue-500">workwithjacksontaylor@gmail.com</a>.</p>
+          <p className="mb-2">If you have any questions about these Terms, please contact us at <a href="mailto:zeroxjackson@gmail.com" className="underline text-blue-500">zeroxjackson@gmail.com</a>.</p>
           <p>By using FaviFont, you acknowledge that you have read, understood, and agree to these Terms of Service.</p>
         </div>
       </main>

@@ -56,7 +56,7 @@ const PrivacyPolicy = () => {
           <h3 className="text-lg font-bold mb-4">Updates to This Policy</h3>
           <p className="mb-2">We may update this Privacy Policy from time to time. When we do, we will notify you via the email address you have provided.</p>
           <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-          <p className="mb-2">If you have any questions or concerns about this Privacy Policy, please contact us via email at: <a href="mailto:workwithjacksontaylor@gmail.com" className="underline text-blue-500">workwithjacksontaylor@gmail.com</a></p>
+          <p className="mb-2">If you have any questions or concerns about this Privacy Policy, please contact us via email at: <a href="mailto:zeroxjackson@gmail.com" className="underline text-blue-500">zeroxjackson@gmail.com</a></p>
           <p>By using FaviFont, you agree to the collection and use of your information as outlined in this Privacy Policy.</p>
         </div>
       </main>
