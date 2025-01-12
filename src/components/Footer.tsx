@@ -43,12 +43,12 @@ const Footer = () => {
               </div>
 
               <div className="flex flex-col justify-center items-center md:items-start mb-10 text-sm">
-                <Link onClick={() => handleClick("website")} href="https://www.jacksontaylor.com" target="_blank" className="link link-hover">
+                <Link onClick={() => handleClick("website")} href="https://www.zeroxjackson.com" target="_blank" className="link link-hover">
                   <Button
                     variant="link"
                     className="text-white p-0"
                   >
-                    jacksontaylor.com
+                    zeroxjackson.com
                   </Button>
                 </Link>
                 <Link onClick={() => handleClick("twitter")} href="https://x.com/zeroxjackson" target="_blank" className="link link-hover">

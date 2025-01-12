@@ -1,8 +1,8 @@
-# [<img src="./public/images/logo.png" alt="logo" width="50"/> FaviFont](https://favifont.jacksontaylor.com)
+# [<img src="./public/images/logo.png" alt="logo" width="50"/> FaviFont](https://favifont.zeroxjackson.com)
 
 FaviFont is a simple web tool to help designers and developers choose the best font with their project with powerful discovery and comparison functionality.
 
-Try it now! [Click here.](https://favifont.jacksontaylor.com)
+Try it now! [Click here.](https://favifont.zeroxjackson.com)
 
 ## Explore
 
